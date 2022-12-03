@@ -10,7 +10,7 @@ def score_round1(line):
     opponent_shape = ord(opponent) - A_ORD
     own_shape = ord(own) - X_ORD
     # Win
-    if (opponent_shape + 1) % 3 == own_shape:
+    if own_shape == (opponent_shape + 1) % 3:
         score = 6
     # Draw
     elif own_shape == opponent_shape:
@@ -31,7 +31,7 @@ def score_round2(line):
     else:
         own_shape = (opponent_shape + 1) % 3
     # Win
-    if (opponent_shape + 1) % 3 == own_shape:
+    if own_shape == (opponent_shape + 1) % 3:
         score = 6
     # Draw
     elif own_shape == opponent_shape:
