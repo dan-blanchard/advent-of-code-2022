@@ -1,30 +1,5 @@
 import argparse
 import fileinput
-from collections import deque
-from itertools import islice
-
-
-def sliding_window(iterable, n):
-    """Taken from itertools docs example"""
-    # sliding_window('ABCDEFG', 4) -> ABCD BCDE CDEF DEFG
-    it = iter(iterable)
-    window = deque(islice(it, n), maxlen=n)
-    if len(window) == n:
-        yield tuple(window)
-    for x in it:
-        window.append(x)
-        yield tuple(window)
-
-
-def sliding_sum(*, num_list, n):
-    return [sum(window) for window in sliding_window(num_list, n)]
-
-
-def count_increasing(num_list):
-    """Count how many numbers in list of numbers are larger than the previous"""
-    return sum(
-        (y > x for y, x in zip(reversed(num_list), islice(reversed(num_list), 1, None)))
-    )
 
 
 def get_groups(lines):
